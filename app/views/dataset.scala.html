@@ -1,0 +1,44 @@
+@import scala.collection.mutable
+@(handle: String, rows: Array[org.apache.spark.sql.Row])
+@import scala.collection.mutable.WrappedArray
+<!doctype html>
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>@handle</title>
+    </head>
+
+    <body>
+        <h1>Dataset @handle</h1>
+        <table border="1">
+            <tr>
+                @for(col<- rows(0).schema.fieldNames) {
+                    <th>@col</th>
+                }
+            </tr>
+            @for(row <- rows){
+                <tr>
+                    @for(col<-row.toSeq){
+                        <td>
+
+                                @col match {
+                                    case a: WrappedArray[AnyVal] => {
+                                        <table>
+                                            @for(v<-a){
+                                                <tr><td>@v</td></tr>
+                                            }
+                                        </table>
+
+                                    }
+                                    case _ => {@col.toString}
+                                }
+
+                        </td>
+                    }
+                </tr>
+            }
+            </table>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "7f1a3c12-6adf-4cd7-97ce-5f201d96a8e9",
+		"name": "iDDS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FilterEvents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\": \"select * from 7d16e25b-c95b-4fbb-af69-856cf8d72769\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/filterEvents?dataframe=7d16e25b-c95b-4fbb-af69-856cf8d72769",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"filterEvents"
+					],
+					"query": [
+						{
+							"key": "dataframe",
+							"value": "7d16e25b-c95b-4fbb-af69-856cf8d72769"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FilterCandidates",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\": \"select * from 7d16e25b-c95b-4fbb-af69-856cf8d72769\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/filterEvents?dataframe=7d16e25b-c95b-4fbb-af69-856cf8d72769",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"filterEvents"
+					],
+					"query": [
+						{
+							"key": "dataframe",
+							"value": "7d16e25b-c95b-4fbb-af69-856cf8d72769"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reassembleEvents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\": \"select * from 7d16e25b-c95b-4fbb-af69-856cf8d72769\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/filterEvents?dataframe=7d16e25b-c95b-4fbb-af69-856cf8d72769",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"filterEvents"
+					],
+					"query": [
+						{
+							"key": "dataframe",
+							"value": "7d16e25b-c95b-4fbb-af69-856cf8d72769"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

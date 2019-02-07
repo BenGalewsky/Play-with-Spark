@@ -1,4 +1,28 @@
-# Play with Apache Spark
+# IRIS-HEP Intelligent Data Delivery Service
+This Play application is a very simple prototype of the proposed iDDS being 
+designed as part of the Institute for Research and Innovation in Software for
+High Energy Physics ([IRIS-HEP](http://iris-hep.org)).
+
+Visiting the home page presents a sketch for the ability for analyzers to 
+specify a universe of root files to consider for analysis. There is an 
+[ace](https://github.com/ajaxorg/ace) editor for creating a SQL query that 
+would be applied to the dataset as it is being ingested into the  cluster. This
+is not functional, but demonstrates how the iDDS can simplify the problem of 
+working with this data by reshaping it before any work begins. It's also 
+assumed that a federated iDDS could look around the network to find a pre-filtered 
+dataset to start with to make this initial transformation even more efficient.
+
+Once the dataset is loaded into the cluster, the user is provided with a handle 
+to make it possible to reference the initial set.
+
+Additional transformations are submitted via the REST api. Examples are available 
+in the provided Postman collection.
+
+Finally, the generated datasets may be visualized with the /datasets/:handle endpoint 
+
+This app is based on the useful Scala Play With Apache Spark
+
+
 This is a simple example that combines Scala Play with Apache Spark.
 
 Project's main purpose is to have a basic understanding on how to call Spark from Play. The class controllers.HomeController has two examples on how to call a function from spark.SparkTest that calls Apache Spark. The example creates an sequence of numbers as a DataSet, counts them and send this result to Scala Play. The count gets displayed by the browser using Play's HTML views.

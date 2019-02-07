@@ -1,0 +1,26 @@
+@(rootFiles: List[String], dataframeHandle:String)
+<!doctype html>
+
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Provisioning Cluster</title>
+    </head>
+
+    <body>
+        <h1>Provisioning Cluster</h1>
+        <table>
+            <tr>
+                <th>Root File</th><th>Status</th>
+            </tr>
+                @for(rootFile <- rootFiles){
+                    <tr>
+                        <td>@rootFile</td><td>Loaded</td>
+                    </tr>
+                }
+        </table>
+
+        <h2>Dataset Handle: @dataframeHandle</h2>
+
+        <p>

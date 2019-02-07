@@ -1,21 +1,55 @@
-@()
+@import forms.SearchCriteria
+@import helper._
+
+@(datasets: List[(String, String)],
+        processing_versions: List[(String, String)],
+        data_tiers: List[(String, String)],
+        form: Form[SearchCriteria])(implicit request: RequestHeader, messagesProvider: MessagesProvider)
 <!doctype html>
 
+
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Play REST API</title>
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <title>iDDS</title>
+        <link rel="stylesheet" href="/assets/stylesheets/doma.css">
+    </head>
 
-  <body>
-    <h1>Play REST API</h1>
+    <body>
+        <img src="/assets/images/iris-hep-logo.png" style="width: 250px"/>
+        <h1>Intelligent Data Delivery Service </h1>
 
-    <p>
-      This is a placeholder page to show you the REST API.
-    </p>
+        <p>
 
-    <ul>
-      <li><a href="/v1/posts">/v1/posts</a></li>
-    </ul>
-  </body>
+            @helper.form(action = helper.CSRF(routes.HomeController.provisionAnalysis())) {
+                <h2>Universe of Events for Study</h2>
+                @helper.select(form("primary_dataset"), options = datasets)
+                @helper.select(form("processing_version"), options = processing_versions)
+                @helper.select(form("data_tier"), options = data_tiers)
+
+                <h2>Initial Transformations</h2>
+                <div id="editor">
+                    SELECT luminosityBlock, event, nElectron, Electron_deltaEtaSC, Electron_dr03EcalRecHitSumEt,
+                    Electron_dr03HcalDepth1TowerSumEt, Electron_dr03TkSumPt, Electron_dxy, Electron_dxyErr,
+                    Electron_dz, Electron_dzErr, Electron_eCorr, Electron_eInvMinusPInv, Electron_energyErr,
+                    Electron_eta, Electron_hoe, Electron_ip3d, Electron_mass
+                    FROM mydataset
+                    WHERE nElectron > 1
+                </div>
+                <script src="/assets/js/ace/src-min/ace.js" type="text/javascript" charset="utf-8"></script>
+                <script>
+                        var editor = ace.edit("editor");
+                        editor.setTheme("ace/theme/twilight");
+                        editor.session.setMode("ace/mode/sql");
+
+                </script>
+
+
+                <input type="submit" value="Submit">
+
+            }
+        </p>
+
+
+    </body>
 </html>
